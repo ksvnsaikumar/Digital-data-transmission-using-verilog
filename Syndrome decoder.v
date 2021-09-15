@@ -22,7 +22,7 @@ always@(c2)
     d[3]=c2[6]; 
   end
 endmodule
-//test bench for hamming encoder
+//test bench for hamming decoder
 module test_decoder;
 reg clk;
 reg [6:0]c;
