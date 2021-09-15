@@ -14,3 +14,25 @@ module hamenc(clk,d,c );
       c[0]=d[0]^d[1]^d[3]; 
     end 
 endmodule
+//test bench for hamming encoder
+module test_encoder;
+reg clk;
+  reg [3:0]d;
+  wire [6:0] c;
+hamenc uut (
+.clk(clk),
+  .d(d),
+  .c(c)
+);
+initial begin
+  $dumpfile("dump.vcd");
+  $dumpvars(1);
+clk = 0;
+  d[3:0] = 4'b0000;
+#10;
+  d[3:0]=4'b1011;
+#10;
+  $finish;
+end
+always begin #1 clk=~clk; end
+endmodule
