@@ -55,6 +55,7 @@ read_zero_one_one:
 endcase
 assign out_bit = (state_reg == read_zero_one_one_one)? 1 : 0;
 endmodule
+
 //testbench for mealy sequence detector
 module test_sequence;
 reg clock;
@@ -93,22 +94,15 @@ reset = 1;
 in_bit = 1;
 #10;
 reset = 0;
-
 in_bit = 0;
 #10;
-
 reset = 0;
-
 in_bit = 1;
 #10;
-
 reset = 0;
-
 in_bit = 1;
 #10;
-
 reset = 0;
-
 in_bit = 1;
 #10;
   $finish;
